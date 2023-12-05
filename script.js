@@ -2,6 +2,12 @@ const newNoteBtn = document.querySelector("#btnNew");
 const wrap = document.querySelector("#wrapper");
 let noteText = document.getElementById("noteValue");
 
+function spanFunc(name, html, css, parent){
+    name.innerHTML = html;
+    name.classList.add(css);
+    parent.appendChild(name);
+}
+
 newNoteBtn.addEventListener("click", function(){
     if(noteText.value === ''){
         alert("You must fill the box");
@@ -24,19 +30,13 @@ newNoteBtn.addEventListener("click", function(){
         noteWrap.appendChild(actionsWrap);
 
         let checkSpan = document.createElement("span");
-        checkSpan.innerHTML = 'Check';
-        checkSpan.classList.add("check");
-        actionsWrap.appendChild(checkSpan);
+        spanFunc(checkSpan, 'Check', "check", actionsWrap);
 
         let deleteSpan = document.createElement("span");
-        deleteSpan.innerHTML = 'Delete';
-        deleteSpan.classList.add("delete");
-        actionsWrap.appendChild(deleteSpan);
+        spanFunc(deleteSpan, 'Delete', "delete", actionsWrap);
 
         let copySpan = document.createElement("span");
-        copySpan.innerHTML = 'Copy to clipboard';
-        copySpan.classList.add("copy");
-        noteWrap.appendChild(copySpan);
+        spanFunc(copySpan, 'Copy to clipboard', "copy", noteWrap);
 
         checkSpan.addEventListener("click", function(){
             li.classList.toggle("checked");
