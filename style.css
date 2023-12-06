@@ -22,7 +22,7 @@ ul{
     display: block;
     background-color: #FF8080;
     color: #fff;
-    margin-top: 10px;
+    margin: 10px 0;
     text-align: center;
     border-radius: 6px;
     cursor: pointer;
@@ -54,8 +54,29 @@ ul{
 	border-radius: 6px;
     cursor: pointer;
 }
-.single-note-wrap li{
-    min-height: 150px;
+.single-note-wrap li {
+	min-height: 150px;
+	background-color: #FBECB2;
+	padding: 10px 20px;
+	border-radius: 10px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+.blue,
+.yellow,
+.green{
+    cursor: pointer;
+    border-radius: 20px;
+    display: inline-block;
+    margin-right: 10px;
+    background-color: #96EFFF;
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
+.yellow{
     background-color: #FBECB2;
-    padding: 10px 20px;
+}
+.green{
+    background-color: #D0F288;
 }
