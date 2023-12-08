@@ -64,7 +64,8 @@ ul{
 }
 .blue,
 .yellow,
-.green{
+.green,
+.purple{
     cursor: pointer;
     border-radius: 20px;
     display: inline-block;
@@ -79,4 +80,7 @@ ul{
 }
 .green{
     background-color: #D0F288;
+}
+.purple{
+    background-color: #E7BCDE;
 }

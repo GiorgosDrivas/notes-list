@@ -51,6 +51,10 @@ newNoteBtn.addEventListener("click", function(){ // Create a new note
         greenColor.classList.add("green");
         noteWrap.appendChild(greenColor);
 
+        let purpleColor = document.createElement("span");// Action: change note color
+        purpleColor.classList.add("purple");
+        noteWrap.appendChild(purpleColor);
+
         blueColor.addEventListener("click", function(e){
             e.originalTarget.parentElement.childNodes[0].style.backgroundColor = '#96EFFF'; // Blue note color
         });
@@ -61,6 +65,10 @@ newNoteBtn.addEventListener("click", function(){ // Create a new note
 
         greenColor.addEventListener("click", function(e){
             e.originalTarget.parentElement.childNodes[0].style.backgroundColor = '#D0F288'; // Green note color
+        });
+
+        purpleColor.addEventListener("click", function(e){
+            e.originalTarget.parentElement.childNodes[0].style.backgroundColor = '#E7BCDE'; // Purple note color
         });
 
         checkSpan.addEventListener("click", function(){
