@@ -22,7 +22,8 @@ newNoteBtn.addEventListener("click", function(){ // Create a new note
             title: noteTitle.value, // This could be a dynamic value
             content: noteText.value
         };
-
+        let {title, content} = note; // destructure the object
+        
         let noteWrap = document.createElement("div"); // create a wraper for single note
         noteWrap.classList.add("single-note-wrap");
         wrap.appendChild(noteWrap);
@@ -38,10 +39,10 @@ newNoteBtn.addEventListener("click", function(){ // Create a new note
         
             // Create elements to display the note
             let titleElement = document.createElement("h2");
-            titleElement.textContent = clickedNote.title;
+            titleElement.textContent = title;
         
             let contentElement = document.createElement("p");
-            contentElement.textContent = clickedNote.content;
+            contentElement.textContent = content;
         
             // Append the note details to the single element
             single.appendChild(titleElement);
@@ -50,7 +51,14 @@ newNoteBtn.addEventListener("click", function(){ // Create a new note
         
 
         let li = document.createElement("li"); // create the li(where the text will be in)
-        li.innerHTML = noteText.value;
+        const contentTitle = document.createElement("h1");
+        contentTitle.innerHTML = noteTitle.value;
+        li.appendChild(contentTitle);
+
+        const noteParagraph = document.createElement("p");
+        noteParagraph.innerHTML = noteText.value;
+        li.appendChild(noteParagraph);
+
         noteWrap.appendChild(li);
 
         const actionsWrap = document.createElement("div"); // create wrapper for the actions
@@ -110,5 +118,6 @@ newNoteBtn.addEventListener("click", function(){ // Create a new note
         //     e.originalTarget.parentElement.parentElement.parentElement.remove(); // remove the col div
         // });
     }
-    noteText.value = ''; // Clear the textarea's value
+    noteTitle.value = ''; // Clear the title's value
+    noteText.value = ''; // Clear the content's value
 });

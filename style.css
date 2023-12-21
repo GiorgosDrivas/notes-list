@@ -52,9 +52,10 @@ ul{
     cursor: pointer;
 }
 .single-note-wrap{
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 }
 .single-note-wrap li {
+    cursor: pointer;
 	min-height: 150px;
 	background-color: #FBECB2;
 	padding: 10px 20px;
