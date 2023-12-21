@@ -3,6 +3,8 @@
 const newNoteBtn = document.querySelector("#btnNew");
 const wrap = document.querySelector("#wrapper");
 let noteText = document.getElementById("noteValue");
+const newWrap = document.querySelector(".new-note-wrap");
+const single = document.getElementById("single");
 
 function spanFunc(name, html, css, parent){ // Function to refactor the action-button creation
     name.innerHTML = html;
@@ -15,9 +17,36 @@ newNoteBtn.addEventListener("click", function(){ // Create a new note
         alert("You must fill the box");
     } else {
 
+        let note = { // Create a note object
+            title: 'Note Title', // This could be a dynamic value
+            content: noteText.value
+        };
+
         let noteWrap = document.createElement("div"); // create a wraper for single note
         noteWrap.classList.add("single-note-wrap");
         wrap.appendChild(noteWrap);
+        newWrap.appendChild(single);
+
+        noteWrap.dataset.note = JSON.stringify(note);
+
+        noteWrap.addEventListener("click", function (){
+            let clickedNote = JSON.parse(this.dataset.note);
+        
+            // Clear previous content in the single element
+            single.innerHTML = '';
+        
+            // Create elements to display the note
+            let titleElement = document.createElement("h2");
+            titleElement.textContent = clickedNote.title;
+        
+            let contentElement = document.createElement("p");
+            contentElement.textContent = clickedNote.content;
+        
+            // Append the note details to the single element
+            single.appendChild(titleElement);
+            single.appendChild(contentElement);
+        });
+        
 
         let li = document.createElement("li"); // create the li(where the text will be in)
         li.innerHTML = noteText.value;
