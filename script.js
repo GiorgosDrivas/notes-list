@@ -3,6 +3,7 @@
 const newNoteBtn = document.querySelector("#btnNew");
 const wrap = document.querySelector("#wrapper");
 let noteText = document.getElementById("noteValue");
+let noteTitle = document.getElementById("noteTitle");
 const newWrap = document.querySelector(".new-note-wrap");
 const single = document.getElementById("single");
 
@@ -13,12 +14,12 @@ function spanFunc(name, html, css, parent){ // Function to refactor the action-b
 }
 
 newNoteBtn.addEventListener("click", function(){ // Create a new note
-    if(noteText.value === ''){ // If the value of the textarea is empty
+    if(noteText.value === '' && noteTitle.value === ""){ // If the value of the textarea is empty
         alert("You must fill the box");
     } else {
 
         let note = { // Create a note object
-            title: 'Note Title', // This could be a dynamic value
+            title: noteTitle.value, // This could be a dynamic value
             content: noteText.value
         };
 
