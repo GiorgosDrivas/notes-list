@@ -31,23 +31,23 @@ newNoteBtn.addEventListener("click", function(){ // Create a new note
 
         noteWrap.dataset.note = JSON.stringify(note);
 
-        noteWrap.addEventListener("click", function (){
-            // let clickedNote = JSON.parse(this.dataset.note);
-            noteWrap.classList.toggle("active");
-            // Clear previous content in the single element
-            single.innerHTML = '';
+        noteWrap.addEventListener("click", function () {
+            document.querySelectorAll('.single-note-wrap').forEach(function(el) {
+                el.classList.remove('active');
+            });
         
-            // Create elements to display the note
+            this.classList.add('active');        
+            single.innerHTML = '';
+            
             let titleElement = document.createElement("h2");
             titleElement.textContent = title;
         
             let contentElement = document.createElement("p");
             contentElement.textContent = content;
         
-            // Append the note details to the single element
             single.appendChild(titleElement);
             single.appendChild(contentElement);
-        });
+        });        
 
         let li = document.createElement("li"); // create the li(where the text will be in)
         const contentTitle = document.createElement("h1");
