@@ -15,7 +15,7 @@ function spanFunc(name, html, css, parent){ // Function to refactor the action-b
 
 newNoteBtn.addEventListener("click", function(){ // Create a new note
     if(noteText.value === '' && noteTitle.value === ""){ // If the value of the textarea is empty
-        alert("You must fill the box");
+        alert("You must fill the boxes.");
     } else {
 
         let note = { // Create a note object
@@ -32,8 +32,8 @@ newNoteBtn.addEventListener("click", function(){ // Create a new note
         noteWrap.dataset.note = JSON.stringify(note);
 
         noteWrap.addEventListener("click", function (){
-            let clickedNote = JSON.parse(this.dataset.note);
-        
+            // let clickedNote = JSON.parse(this.dataset.note);
+            noteWrap.classList.toggle("active");
             // Clear previous content in the single element
             single.innerHTML = '';
         
@@ -48,7 +48,6 @@ newNoteBtn.addEventListener("click", function(){ // Create a new note
             single.appendChild(titleElement);
             single.appendChild(contentElement);
         });
-        
 
         let li = document.createElement("li"); // create the li(where the text will be in)
         const contentTitle = document.createElement("h1");
@@ -69,7 +68,7 @@ newNoteBtn.addEventListener("click", function(){ // Create a new note
         // spanFunc(checkSpan, 'Check', "check", actionsWrap);
 
         // let deleteSpan = document.createElement("span");// Action: Delete the note
-        // spanFunc(deleteSpan, 'Delete', "delete", actionsWrap);
+        // spanFunc(deleteSpan, 'X', "delete", li);
 
         // let copySpan = document.createElement("span");// Action: Copy the note
         // spanFunc(copySpan, 'Copy to clipboard', "copy", noteWrap);
@@ -115,7 +114,7 @@ newNoteBtn.addEventListener("click", function(){ // Create a new note
         // });
 
         // deleteSpan.addEventListener("click", function(e){
-        //     e.originalTarget.parentElement.parentElement.parentElement.remove(); // remove the col div
+        //     e.originalTarget.parentElement.parentElement.remove(); // remove the col div
         // });
     }
     noteTitle.value = ''; // Clear the title's value

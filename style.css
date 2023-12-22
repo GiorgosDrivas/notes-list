@@ -6,16 +6,18 @@ ul{
     list-style-type: none;
     padding: 0;
 }
-.delete{
-    position: relative;
-    display: block;
-    background-color: #FF8080;
-    color: #fff;
-    margin-top: 10px;
-    width: 25%;
-    text-align: center;
-    border-radius: 6px;
-    cursor: pointer;
+.delete {
+	position: absolute;
+	display: block;
+	color: #000;
+	margin-top: 10px;
+	width: 35px;
+	text-align: center;
+	border-radius: 6px;
+	cursor: pointer;
+	top: 0;
+    z-index: 10;
+	right: 0;
 }
 .copy{
     position: relative;
@@ -52,13 +54,16 @@ ul{
     cursor: pointer;
 }
 .single-note-wrap{
-    margin-bottom: 10px;
-}
-.single-note-wrap li {
+    position: relative;
     cursor: pointer;
 	min-height: 150px;
-	background-color: #FBECB2;
+    color: #000;
+    margin-bottom: 10px;
 	padding: 10px 20px;
+}
+.single-note-wrap.active {
+	background-color: #000;
+	color: #fff;
 }
 .blue,
 .yellow,
@@ -84,4 +89,7 @@ ul{
 }
 .row .col-12:not(:last-child) {
 	border-right: 1px solid;
+}
+.settings_section{
+    background-color: #000;
 }
