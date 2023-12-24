@@ -1,41 +1,37 @@
-input{
-    border: none;
+h1 {
+    font-size: 60px;
 }
-#noteTitle{
+
+h2,
+#noteTitle {
     font-size: 50px;
-    padding-left: 20px;
 }
-textarea{
-    border-radius: 20px;
-    border: 1px solid #000;
-    padding-left: 20px;
-}
+
 input:focus,
-textarea:focus{
+textarea:focus {
     outline: none;
 }
-.checked{
+
+.checked {
     text-decoration: line-through;
     opacity: 0.5;
 }
-ul{
-    list-style-type: none;
-    padding: 0;
-}
+
 .delete {
-	position: absolute;
-	display: block;
-	color: #000;
-	margin-top: 10px;
-	width: 35px;
-	text-align: center;
-	border-radius: 6px;
-	cursor: pointer;
-	top: 0;
+    position: absolute;
+    display: block;
+    color: #000;
+    margin-top: 10px;
+    width: 35px;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+    top: 0;
     z-index: 10;
-	right: 0;
+    right: 0;
 }
-.copy{
+
+.copy {
     position: relative;
     display: block;
     background-color: #FF8080;
@@ -45,7 +41,8 @@ ul{
     border-radius: 6px;
     cursor: pointer;
 }
-.check{
+
+.check {
     position: relative;
     display: block;
     background-color: #AEDEFC;
@@ -56,56 +53,22 @@ ul{
     border-radius: 6px;
     cursor: pointer;
 }
-.actions-wrap{
+
+.actions-wrap {
     display: flex;
     justify-content: space-between;
 }
-#btnNew {
-	background-color: #DF826C;
-	fill: #fff;
-	width: 50px;
-	height: 30px;
-	padding: 4px;
-	border-radius: 6px;
-    cursor: pointer;
-}
-.single-note-wrap{
+
+.single-note-wrap {
     position: relative;
     cursor: pointer;
-	min-height: 150px;
+    min-height: 150px;
     color: #000;
     margin-bottom: 10px;
-	padding: 10px 20px;
+    padding: 10px 20px;
 }
+
 .single-note-wrap.active {
-	background-color: #000;
-	color: #fff;
-}
-.blue,
-.yellow,
-.green,
-.purple{
-    cursor: pointer;
-    border-radius: 20px;
-    display: inline-block;
-    margin-right: 10px;
-    background-color: #96EFFF;
-    width: 20px;
-    height: 20px;
-    position: relative;
-}
-.yellow{
-    background-color: #FBECB2;
-}
-.green{
-    background-color: #D0F288;
-}
-.purple{
-    background-color: #E7BCDE;
-}
-.row .col-12:not(:last-child) {
-	border-right: 1px solid;
-}
-.settings_section{
     background-color: #000;
+    color: #fff;
 }

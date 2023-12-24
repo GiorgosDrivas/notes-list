@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notes app</title>
-    <link rel="icon" type="image/x-icon" href="https://icons.veryicon.com/png/o/business/a-set-of-commercial-icons/notes-54.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon"
+        href="https://icons.veryicon.com/png/o/business/a-set-of-commercial-icons/notes-54.png">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 </head>
-<body>
-    <section style="height: 100vh;">
-        <div class="container-fluid h-100">
-            <div class="row h-100">
-                <div class="col-12 col-lg-2 p-0">
-                    <div class="settings_section h-100">
 
-                    </div>
-                </div>
-                <div class="col-12 col-lg-4">
-                    <div class="notes-wrap">
+<body>
+    <section id="main-section" class="h-screen overflow-hidden">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 h-full">
+            <div class="grid grid-cols-12 h-full">
+                <div class="col-span-12 lg:col-span-6">
+                    <div class="notes-wrap h-screen overflow-y-scroll">
                         <div class="px-5 text-center mb-5">
-                            <h2>Preview Notes</h2>
+                            <h2 class="text-2xl">Preview Notes</h2>
                         </div>
-                        <ul class="mt-5">
-                            <div class="row" id="wrapper">
-                            </div>
+                        <ul class="mt-5 p-0 list-none">
+                            <div class="grid grid-cols-1" id="wrapper"></div>
                         </ul>
                     </div>
                 </div>
-                <div class="col-12 col-lg-6">
-                    <div class="new-note-wrap d-flex flex-column pt-5 px-4 h-100">
-                        <input type="text" placeholder="Title" class="mb-2" id="noteTitle">
-                        <textarea id="noteValue" rows="5" cols="60" name="text" maxlength="150" placeholder="Write a new Note(Maximum characters: 150)"></textarea>
-                        <div class="add-btn text-end mt-5">
-                            <svg id="btnNew" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+                <div class="col-span-12 lg:col-span-6">
+                    <div class="new-note-wrap flex flex-col pt-5 px-4 h-full">
+                        <input type="text" placeholder="Title" class="pl-5 mb-2 p-2 border border-gray-300 rounded-lg"
+                            id="noteTitle">
+                        <textarea id="noteValue" rows="5" name="text" placeholder="Content"
+                            class="pl-5 p-2 border border-gray-300 rounded-lg"></textarea>
+                        <div class="add-btn text-right mt-2 mb-5">
+                            <svg id="btnNew" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                class="fill-black bi bi-plus-lg w-8 h-8 cursor-pointer" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
                             </svg>
                         </div>
                     </div>
@@ -46,4 +46,5 @@
     </section>
     <script type="module" src="script.js"></script>
 </body>
+
 </html>

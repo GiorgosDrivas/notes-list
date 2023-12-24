@@ -7,23 +7,20 @@ let noteTitle = document.getElementById("noteTitle");
 const newWrap = document.querySelector(".new-note-wrap");
 const single = document.getElementById("single");
 
-function spanFunc(name, html, css, parent){ // Function to refactor the action-button creation
+function spanFunc(name, html, css, parent) { // Function to refactor the action-button creation
     name.innerHTML = html;
     name.classList.add(css);
     parent.appendChild(name);
 }
 
-newNoteBtn.addEventListener("click", function(){ // Create a new note
-    if(noteText.value === '' && noteTitle.value === ""){ // If the value of the textarea is empty
-        alert("You must fill the boxes.");
-    } else {
+newNoteBtn.addEventListener("click", function () { // Create a new note
+    let note = { // Create a note object
+        title: noteTitle.value, // This could be a dynamic value
+        content: noteText.value
+    };
+    let { title = 'Default title', content = 'Default content' } = note; // destructure the object
 
-        let note = { // Create a note object
-            title: noteTitle.value, // This could be a dynamic value
-            content: noteText.value
-        };
-        let {title, content} = note; // destructure the object
-        
+    if (title && content) {
         let noteWrap = document.createElement("div"); // create a wraper for single note
         noteWrap.classList.add("single-note-wrap");
         wrap.appendChild(noteWrap);
@@ -32,22 +29,22 @@ newNoteBtn.addEventListener("click", function(){ // Create a new note
         noteWrap.dataset.note = JSON.stringify(note);
 
         noteWrap.addEventListener("click", function () {
-            document.querySelectorAll('.single-note-wrap').forEach(function(el) {
+            document.querySelectorAll('.single-note-wrap').forEach(function (el) {
                 el.classList.remove('active');
             });
-        
-            this.classList.add('active');        
+
+            this.classList.add('active');
             single.innerHTML = '';
-            
+
             let titleElement = document.createElement("h2");
             titleElement.textContent = title;
-        
+
             let contentElement = document.createElement("p");
             contentElement.textContent = content;
-        
+
             single.appendChild(titleElement);
             single.appendChild(contentElement);
-        });        
+        });
 
         let li = document.createElement("li"); // create the li(where the text will be in)
         const contentTitle = document.createElement("h1");
@@ -55,7 +52,7 @@ newNoteBtn.addEventListener("click", function(){ // Create a new note
         li.appendChild(contentTitle);
 
         const noteParagraph = document.createElement("p");
-        noteParagraph.innerHTML = noteText.value;
+        noteParagraph.innerHTML = noteText.value.substring(0, 50) + '...';
         li.appendChild(noteParagraph);
 
         noteWrap.appendChild(li);
@@ -73,38 +70,6 @@ newNoteBtn.addEventListener("click", function(){ // Create a new note
         // let copySpan = document.createElement("span");// Action: Copy the note
         // spanFunc(copySpan, 'Copy to clipboard', "copy", noteWrap);
 
-        // let blueColor = document.createElement("span");// Action: change note color
-        // blueColor.classList.add("blue");
-        // noteWrap.appendChild(blueColor);
-
-        // let yellowColor = document.createElement("span");// Action: change note color
-        // yellowColor.classList.add("yellow");
-        // noteWrap.appendChild(yellowColor);
-
-        // let greenColor = document.createElement("span");// Action: change note color
-        // greenColor.classList.add("green");
-        // noteWrap.appendChild(greenColor);
-
-        // let purpleColor = document.createElement("span");// Action: change note color
-        // purpleColor.classList.add("purple");
-        // noteWrap.appendChild(purpleColor);
-
-        // blueColor.addEventListener("click", function(e){
-        //     e.originalTarget.parentElement.childNodes[0].style.backgroundColor = '#96EFFF'; // Blue note color
-        // });
-
-        // yellowColor.addEventListener("click", function(e){
-        //     e.originalTarget.parentElement.childNodes[0].style.backgroundColor = '#FBECB2'; // Yellow note color
-        // });
-
-        // greenColor.addEventListener("click", function(e){
-        //     e.originalTarget.parentElement.childNodes[0].style.backgroundColor = '#D0F288'; // Green note color
-        // });
-
-        // purpleColor.addEventListener("click", function(e){
-        //     e.originalTarget.parentElement.childNodes[0].style.backgroundColor = '#E7BCDE'; // Purple note color
-        // });
-
         // checkSpan.addEventListener("click", function(){
         //     li.classList.toggle("checked"); // Toggle css class to line-through
         // });
@@ -116,7 +81,10 @@ newNoteBtn.addEventListener("click", function(){ // Create a new note
         // deleteSpan.addEventListener("click", function(e){
         //     e.originalTarget.parentElement.parentElement.remove(); // remove the col div
         // });
+
+        noteTitle.value = ''; // Clear the title's value
+        noteText.value = ''; // Clear the content's value
+    } else {
+        alert("You must fill a title and text for your note.");
     }
-    noteTitle.value = ''; // Clear the title's value
-    noteText.value = ''; // Clear the content's value
 });
