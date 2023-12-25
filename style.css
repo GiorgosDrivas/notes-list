@@ -1,3 +1,12 @@
+body {
+    font-family: 'Teko', sans-serif;
+}
+
+.single-note-wrap p {
+    font-weight: 400;
+    font-size: 20px;
+}
+
 h1 {
     font-size: 60px;
 }
@@ -12,51 +21,16 @@ textarea:focus {
     outline: none;
 }
 
-.checked {
-    text-decoration: line-through;
-    opacity: 0.5;
-}
-
 .delete {
-    position: absolute;
-    display: block;
-    color: #000;
-    margin-top: 10px;
     width: 35px;
+    height: 30px;
+    position: absolute;
+    top: 8px;
     text-align: center;
-    border-radius: 6px;
+    left: -7px;
+    z-index: 99999999;
     cursor: pointer;
-    top: 0;
-    z-index: 10;
-    right: 0;
-}
-
-.copy {
-    position: relative;
-    display: block;
-    background-color: #FF8080;
-    color: #fff;
-    margin: 10px 0;
-    text-align: center;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.check {
-    position: relative;
-    display: block;
-    background-color: #AEDEFC;
-    color: #fff;
-    margin-top: 10px;
-    width: 25%;
-    text-align: center;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.actions-wrap {
-    display: flex;
-    justify-content: space-between;
+    font-size: 20px;
 }
 
 .single-note-wrap {

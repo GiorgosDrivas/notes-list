@@ -5,7 +5,7 @@ const wrap = document.querySelector("#wrapper");
 let noteText = document.getElementById("noteValue");
 let noteTitle = document.getElementById("noteTitle");
 const newWrap = document.querySelector(".new-note-wrap");
-const single = document.getElementById("single");
+let single = document.getElementById("single");
 
 function spanFunc(name, html, css, parent) { // Function to refactor the action-button creation
     name.innerHTML = html;
@@ -21,12 +21,22 @@ newNoteBtn.addEventListener("click", function () { // Create a new note
     let { title = 'Default title', content = 'Default content' } = note; // destructure the object
 
     if (title && content) {
-        let noteWrap = document.createElement("div"); // create a wraper for single note
+        let noteWrap = document.createElement("div"); // create a wrapper for single note
         noteWrap.classList.add("single-note-wrap");
         wrap.appendChild(noteWrap);
         newWrap.appendChild(single);
 
         noteWrap.dataset.note = JSON.stringify(note);
+
+        let deleteSpan = document.createElement("span"); // Action: Delete the note
+        spanFunc(deleteSpan, 'x', "delete", noteWrap);
+
+        deleteSpan.addEventListener("click", function (e) {
+            const noteWrapToRemove = this.parentElement;
+            noteWrapToRemove.remove();
+            single.innerHTML = '';
+            e.stopPropagation(); // Prevent event bubbling to the noteWrap click event
+        });
 
         noteWrap.addEventListener("click", function () {
             document.querySelectorAll('.single-note-wrap').forEach(function (el) {
@@ -56,31 +66,6 @@ newNoteBtn.addEventListener("click", function () { // Create a new note
         li.appendChild(noteParagraph);
 
         noteWrap.appendChild(li);
-
-        const actionsWrap = document.createElement("div"); // create wrapper for the actions
-        actionsWrap.classList.add("actions-wrap");
-        noteWrap.appendChild(actionsWrap);
-
-        // let checkSpan = document.createElement("span"); // Action: Check the note
-        // spanFunc(checkSpan, 'Check', "check", actionsWrap);
-
-        // let deleteSpan = document.createElement("span");// Action: Delete the note
-        // spanFunc(deleteSpan, 'X', "delete", li);
-
-        // let copySpan = document.createElement("span");// Action: Copy the note
-        // spanFunc(copySpan, 'Copy to clipboard', "copy", noteWrap);
-
-        // checkSpan.addEventListener("click", function(){
-        //     li.classList.toggle("checked"); // Toggle css class to line-through
-        // });
-
-        // copySpan.addEventListener("click", function(){
-        //     navigator.clipboard.writeText(li.innerHTML); // copy to clipboard
-        // });
-
-        // deleteSpan.addEventListener("click", function(e){
-        //     e.originalTarget.parentElement.parentElement.remove(); // remove the col div
-        // });
 
         noteTitle.value = ''; // Clear the title's value
         noteText.value = ''; // Clear the content's value
