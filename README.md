@@ -1,3 +1,4 @@
+Preview link: https://notes-app-gd.netlify.app/
 A notes web app using Vanilla Javascript and Bootstrap.
 
 The user can write any note (up to 150 characters length).
